@@ -61,7 +61,9 @@ public class DjlTensorFlowAutoConfigurationTest {
                     assertThat(context).hasBean("predictorProvider");
                     var predictor = (Supplier<Predictor<Image, Classifications>>) context.getBean("predictorProvider");
                     Classifications result = predictor.get().predict(getClassPathImage(("/susan-coctail.png")));
-                    LOG.info(result.toString());
+                    String resultText = result.getAsString();
+                    resultText = resultText.replaceAll("n\\d*\\s", "");
+                    LOG.info(resultText);
                 });
     }
 
