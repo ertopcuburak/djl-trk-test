@@ -60,7 +60,7 @@ public class DjlTensorFlowAutoConfigurationTest {
                     assertThat(context).hasSingleBean(ZooModel.class);
                     assertThat(context).hasBean("predictorProvider");
                     var predictor = (Supplier<Predictor<Image, Classifications>>) context.getBean("predictorProvider");
-                    Classifications result = predictor.get().predict(getClassPathImage(("/puppy-in-white-and-red-polka.jpg")));
+                    Classifications result = predictor.get().predict(getClassPathImage(("/susan-coctail.png")));
                     LOG.info(result.toString());
                 });
     }
